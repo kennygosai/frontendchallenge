@@ -31,6 +31,7 @@ const PaginatedTable = () => {
   const [userData, setUserData] = useState();
   const [expanded, setExpanded] = useState("");
   const [pager, setPager] = useState({});
+  const [err, setErr] = useState("");
   const [pageOfItems, setPageOfItems] = useState([]);
   const [sortConfig, setSortConfig] = useState({
     key: "",
@@ -48,7 +49,7 @@ const PaginatedTable = () => {
         })
         .catch((error) => {
           //ADD ERROR RESPONSE
-          console.log(error);
+          setErr("Error Loading Data");
         });
     } else {
       setUserData(userReduxData);
@@ -116,7 +117,7 @@ const PaginatedTable = () => {
                 {isLoading !== "idle" ? (
                   <tr>
                     <td colSpan={3} className="uk-text-center">
-                      <em className="uk-text-muted">Loading...</em>
+                      {err ? <em style={{color:'red'}}>{err}</em> : <em className="uk-text-muted">Loading...</em>}
                     </td>
                   </tr>
                 ) : (
