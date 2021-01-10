@@ -1,0 +1,13 @@
+/*
+ * Filename: \client\src\App.css
+ * Created Date: Friday, January 8th 2021
+ * Author: Kenny Gosai
+ */
+
+.App-body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}

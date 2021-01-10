@@ -1,0 +1,47 @@
+/*
+ * Filename: \client\src\components\Table\style.module.css
+ * Created Date: Saturday, January 9th 2021
+ * Author: Kenny Gosai
+ */
+
+.container {
+  max-width: 960px;
+  margin: 10px;
+  padding: 0;
+  border: 1px solid #e5e5e5;
+  border-radius: 5px;
+}
+.tableContainer {
+  overflow-y: scroll;
+  height: 455px;
+}
+
+.tableContainer tr:first-child th {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  background: #fff;
+}
+.tableContainer table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.headerButton:hover {
+  color: #39f;
+  cursor: pointer;
+}
+.headerButton {
+  padding: 16px 12px;
+  text-align: left;
+  vertical-align: bottom;
+  font-size: 0.875rem;
+  font-weight: 400;
+  color: #999;
+  text-transform: uppercase;
+  padding: 0;
+  background: none;
+  border: none;
+  outline: none;
+}

@@ -1,0 +1,39 @@
+/*
+ * Filename: \client\src\components\Table\UserTableRow\style.module.css
+ * Created Date: Sunday, January 10th 2021, 1:19:25 am
+ * Author: Kenny Gosai
+ */
+
+tr.expandable > td {
+  box-shadow: inset 0 3px 6px -3px rgba(0, 0, 0, 0.2);
+  padding: 0;
+}
+
+tr.expandable > td > .inner {
+  margin: 15px;
+  overflow: hidden;
+}
+.loggedIn {
+  color: green;
+}
+
+.loggedOut {
+  color: red;
+}
+.subTitle {
+  font-size: 0.875rem;
+  font-weight: 400;
+  color: #999;
+  text-transform: uppercase;
+}
+
+.rowClick {
+  cursor: pointer;
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Old versions of Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
+}
