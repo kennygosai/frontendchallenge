@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: Table/PaginatedTable.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: Table/PaginatedTable.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/*
+ * Filename: \client\src\components\Table\PaginatedTable.js
+ * Created Date: Saturday, January 9th 2021, 1:34:49 am
+ * Author: Kenny Gosai
+ */
+
+import React, { useState, useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import {
+  userValues,
+  usersLoading,
+  usersReceived,
+  loadingValues,
+} from "../../features/usersSlice";
+import UserTableRow from "./UserTableRow/UserTableRow";
+import style from "./style.module.css";
+import Pagination from "../Pagination/Pagination";
+
+/**
+ * Component for showing Table of users.
+ *
+ * @component
+ * @example
+ * return (
+ *   &lt;PaginatedTable>&lt;/PaginatedTable>
+ * )
+ */
+const PaginatedTable = () => {
+  const userReduxData = useSelector(userValues);
+  const isLoading = useSelector(loadingValues);
+  const [userData, setUserData] = useState();
+  const [expanded, setExpanded] = useState("");
+  const [pager, setPager] = useState({});
+  const [pageOfItems, setPageOfItems] = useState([]);
+  const [sortConfig, setSortConfig] = useState({
+    key: "",
+    direction: "",
+  });
+  const dispatch = useDispatch();
+  useEffect(() => {
+    if (!userReduxData || !userReduxData.length) {
+      dispatch(usersLoading());
+      fetch("/userData")
+        .then((response) => response.json())
+        .then((result) => {
+          dispatch(usersReceived(result));
+          setUserData(result);
+        })
+        .catch((error) => {
+          //ADD ERROR RESPONSE
+          console.log(error);
+        });
+    } else {
+      setUserData(userReduxData);
+    }
+  }, [dispatch,userReduxData]);
+
+  /**
+   * Handles Table Sort
+   * @param {string} key - Sorting on key
+   */
+  const requestSort = (key) => {
+    let direction = "ascending";
+    if (sortConfig.key === key &amp;&amp; sortConfig.direction === "ascending") {
+      direction = "descending";
+    }
+    setSortConfig({ key, direction });
+    const sortedArray = [...userData];
+    sortedArray.sort((a, b) => {
+      if (a[key] &lt; b[key]) {
+        return direction === "ascending" ? -1 : 1;
+      }
+      if (a[key] > b[key]) {
+        return direction === "ascending" ? 1 : -1;
+      }
+      return 0;
+    });
+    setUserData(sortedArray);
+    setPageOfItems(sortedArray.slice(pager.startIndex, pager.endIndex + 1));
+  };
+  const onChangePage = (pageOfItem) => {
+    setPageOfItems(pageOfItem);
+  }
+  return (
+    &lt;main>
+      &lt;div className={style.container}>
+        &lt;div className={style.tableContainer}>
+          &lt;div>
+            &lt;table className="uk-table uk-table-hover uk-table-middle uk-table-divider">
+              &lt;thead>
+                &lt;tr>
+                  &lt;th className="uk-table-shrink">Avatar&lt;/th>
+                  &lt;th>
+                    &lt;button
+                      className={style.headerButton}
+                      onClick={() => {
+                        requestSort("name");
+                      }}
+                    >
+                      Name
+                    &lt;/button>
+                  &lt;/th>
+                  &lt;th>
+                    &lt;button
+                      className={style.headerButton}
+                      onClick={() => {
+                        requestSort("isActive");
+                      }}
+                    >
+                      Active
+                    &lt;/button>
+                  &lt;/th>
+                &lt;/tr>
+              &lt;/thead>
+              &lt;tbody>
+                {isLoading !== "idle" ? (
+                  &lt;tr>
+                    &lt;td colSpan={3} className="uk-text-center">
+                      &lt;em className="uk-text-muted">Loading...&lt;/em>
+                    &lt;/td>
+                  &lt;/tr>
+                ) : (
+                  pageOfItems.map((user, index) => (
+                    &lt;UserTableRow
+                      key={index}
+                      index={user.index + 1}
+                      user={user}
+                      expanded={expanded}
+                      setExpanded={(val) => setExpanded(val)}
+                    />
+                  ))
+                )}
+              &lt;/tbody>
+            &lt;/table>
+          &lt;/div>
+        &lt;/div>
+        {userData ? (
+          &lt;Pagination
+            pager={pager}
+            setPager={(val) => setPager(val)}
+            items={userData}
+            onChangePage={
+               (val) => onChangePage(val)
+            }
+            initialPage={1}
+            pageSize={20}
+          />
+        ) : null}
+      &lt;/div>
+    &lt;/main>
+  );
+};
+export default PaginatedTable;
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+  <h2><a href="index.html">Home</a></h2><h3>Components</h3><ul><li><a href="PaginatedTable.html">PaginatedTable</a></li><li><a href="Pagination.html">Pagination</a></li><li><a href="UserTableRow.html">UserTableRow</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.6</a> on Sun Jan 10 2021 16:27:06 GMT-0500 (Eastern Standard Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
