@@ -34,7 +34,7 @@ const UserTableRow = ({ user, expanded, setExpanded }) => {
         <td>
           <img
             className="uk-preserve-width uk-border-circle"
-            src={user.picture}
+            src={user.picture.replace(/^http:\/\//i, 'https://')}
             width={48}
             alt="avatar"
           />
@@ -49,7 +49,7 @@ const UserTableRow = ({ user, expanded, setExpanded }) => {
               <div className="uk-width-1-4 uk-text-center">
                 <img
                   className="uk-preserve-width uk-border-circle"
-                  src={user.picture}
+                  src={user.picture.replace(/^http:\/\//i, 'https://')}
                   alt="avatar"
                   style={{ width: "60px" }}
                 />
