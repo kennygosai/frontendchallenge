@@ -4,14 +4,10 @@
   <p align="center">
     A Front-End Developer challenge involving fetching and displaying data.
     <br />
-    <a href="https://github.com/kennygosai/portfolio"><strong>Explore the docs »</strong></a>
+    <a href="https://kennygosai.github.io/frontendchallenge/"><strong>Explore the Client side docs »</strong></a>
     <br />
     <br />
-    <a href="https://kennygosai.com/">View Demo</a>
-    ·
-    <a href="https://github.com/kennygosai/portfolio/issues">Report Bug</a>
-    ·
-    <a href="https://github.com/kennygosai/portfolio/issues">Request Feature</a>
+    <a href="https://frontendchallenge-set.herokuapp.com/">View Demo</a>
   </p>
 </p>
 
@@ -32,15 +28,15 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://kennygosai.com/)
+[![Product Name Screen Shot][product-screenshot]](https://frontendchallenge-set.herokuapp.com/)
 
 
 ### Built With
 
-* [Material-UI](https://material-ui.com/)
-* [Font Awesome](https://fontawesome.com/)
-* [Fontello](http://fontello.com/)
-* [Styleshout](https://www.styleshout.com/)
+* [ExpressJS](https://expressjs.com/)
+* [Axios](https://www.npmjs.com/package/axios)
+* [Redux ToolKit](https://redux-toolkit.js.org/)
+* [UIKit](https://getuikit.com/)
 
 
 
@@ -59,44 +55,36 @@ npm install npm@latest -g
  
 1. Clone the repo
 ```sh
-git clone https://github.com/kennygosai/portfolio.git
+git clone https://github.com/kennygosai/frontendchallenge.git
 ```
 2. Install NPM packages
 ```sh
-cd portfolio
+cd frontendchallenge
+npm install
+cd client
 npm install
 ```
-3. To ensure contact page emailing works, create a env.local file in the root directory with keys from [EmailJS](https://www.emailjs.com/)
+3. Start the server
 ```sh
-REACT_APP_TEMPLATEID = "your template id"
-REACT_APP_SERVICEID = "your service id"
-REACT_APP_USERID = "your user id"
+//In Root Folder
+npm start
 ```
 4. Start the client
 ```sh
+cd client
 npm start
 ```
-
+5. View development mode at http://localhost:3000/
 
 <!-- CONTACT -->
 ## Contact
 
 [Kenny Gosai](https://kennygosai.com/#contact)
 
-Project Link: [https://github.com/kennygosai/portfolio](https://github.com/kennygosai/portfolio)
+Project Link: [https://github.com/kennygosai/portfolio](https://github.com/kennygosai/frontendchallenge)
 
 
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/othneildrew/Best-README-Template.svg?style=flat-square
-[contributors-url]: https://github.com/kennygosai/portfolio/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/othneildrew/Best-README-Template.svg?style=flat-square
-[forks-url]: https://github.com/kennygosai/portfolio/network/members
-[stars-shield]: https://img.shields.io/github/stars/othneildrew/Best-README-Template.svg?style=flat-square
-[stars-url]: https://github.com/kennygosai/portfolio/stargazers
-[issues-shield]: https://img.shields.io/github/issues/othneildrew/Best-README-Template.svg?style=flat-square
-[issues-url]: https://github.com/kennygosai/portfolio/issues
-[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=flat-square&logo=linkedin&colorB=555
-[linkedin-url]: https://www.linkedin.com/in/kenny-gosai-a27030187/
 [product-screenshot]: images/screenshot.png
