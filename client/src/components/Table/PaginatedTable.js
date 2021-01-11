@@ -90,7 +90,7 @@ const PaginatedTable = () => {
             <table className="uk-table uk-table-hover uk-table-middle uk-table-divider">
               <thead>
                 <tr>
-                  <th className="uk-table-shrink">Avatar</th>
+                  <th className="uk-table-shrink"></th>
                   <th>
                     <button
                       className={style.headerButton}
