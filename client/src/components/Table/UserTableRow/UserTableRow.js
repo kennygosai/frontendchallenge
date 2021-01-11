@@ -34,13 +34,18 @@ const UserTableRow = ({ user, expanded, setExpanded }) => {
         <td>
           <img
             className="uk-preserve-width uk-border-circle"
-            src={user.picture.replace(/^http:\/\//i, 'https://')}
+            src={user.picture.replace(/^http:\/\//i, "https://")}
             width={48}
             alt="avatar"
           />
         </td>
         <td style={{ textAlign: "left" }}>{user.name}</td>
-        <td className={user.isActive ? style.loggedIn : style.loggedOut}>●</td>
+        <td
+          className={user.isActive ? style.loggedIn : style.loggedOut}
+          style={{ textAlign: "center" }}
+        >
+          ●
+        </td>
       </tr>
       {expanded === user["_id"] && (
         <tr className={style.expandable} key="tr-expander">
@@ -49,7 +54,7 @@ const UserTableRow = ({ user, expanded, setExpanded }) => {
               <div className="uk-width-1-4 uk-text-center">
                 <img
                   className="uk-preserve-width uk-border-circle"
-                  src={user.picture.replace(/^http:\/\//i, 'https://')}
+                  src={user.picture.replace(/^http:\/\//i, "https://")}
                   alt="avatar"
                   style={{ width: "60px" }}
                 />

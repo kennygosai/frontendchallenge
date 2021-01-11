@@ -54,7 +54,7 @@ const PaginatedTable = () => {
     } else {
       setUserData(userReduxData);
     }
-  }, [dispatch,userReduxData]);
+  }, [dispatch, userReduxData]);
 
   /**
    * Handles Table Sort
@@ -81,7 +81,7 @@ const PaginatedTable = () => {
   };
   const onChangePage = (pageOfItem) => {
     setPageOfItems(pageOfItem);
-  }
+  };
   return (
     <main>
       <div className={style.container}>
@@ -107,6 +107,7 @@ const PaginatedTable = () => {
                       onClick={() => {
                         requestSort("isActive");
                       }}
+                      style={{ textAlign: "center" }}
                     >
                       Active
                     </button>
@@ -117,7 +118,11 @@ const PaginatedTable = () => {
                 {isLoading !== "idle" ? (
                   <tr>
                     <td colSpan={3} className="uk-text-center">
-                      {err ? <em style={{color:'red'}}>{err}</em> : <em className="uk-text-muted">Loading...</em>}
+                      {err ? (
+                        <em style={{ color: "red" }}>{err}</em>
+                      ) : (
+                        <em className="uk-text-muted">Loading...</em>
+                      )}
                     </td>
                   </tr>
                 ) : (
@@ -140,9 +145,7 @@ const PaginatedTable = () => {
             pager={pager}
             setPager={(val) => setPager(val)}
             items={userData}
-            onChangePage={
-               (val) => onChangePage(val)
-            }
+            onChangePage={(val) => onChangePage(val)}
             initialPage={1}
             pageSize={20}
           />
