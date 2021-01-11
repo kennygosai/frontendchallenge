@@ -1,6 +1,6 @@
 /*
  * Filename: \client\src\app\store.js
- * Created Date: Friday, January 8th 2021, 8:12:17 pm
+ * Created Date: Friday, January 8th 2021
  * Author: Kenny Gosai
  */
 

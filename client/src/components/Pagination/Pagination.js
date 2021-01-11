@@ -1,6 +1,6 @@
 /*
  * Filename: \client\src\components\Pagination\Pagination.js
- * Created Date: Saturday, January 9th 2021, 7:59:45 pm
+ * Created Date: Saturday, January 9th 2021
  * Author: Kenny Gosai
  */
 

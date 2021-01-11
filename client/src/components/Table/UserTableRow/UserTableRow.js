@@ -1,6 +1,6 @@
 /*
  * Filename: \client\src\components\Table\UserTableRow\UserTableRow.js
- * Created Date: Saturday, January 9th 2021, 6:18:15 pm
+ * Created Date: Saturday, January 9th 2021
  * Author: Kenny Gosai
  */
 

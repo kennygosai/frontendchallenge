@@ -1,6 +1,6 @@
 /*
  * Filename: \client\src\components\Table\PaginatedTable.js
- * Created Date: Saturday, January 9th 2021, 1:34:49 am
+ * Created Date: Saturday, January 9th 2021
  * Author: Kenny Gosai
  */
 
