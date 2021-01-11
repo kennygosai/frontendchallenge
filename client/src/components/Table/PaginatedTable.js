@@ -101,13 +101,12 @@ const PaginatedTable = () => {
                       Name
                     </button>
                   </th>
-                  <th>
+                  <th style={{ textAlign: "center" }}>
                     <button
                       className={style.headerButton}
                       onClick={() => {
                         requestSort("isActive");
                       }}
-                      style={{ textAlign: "center" }}
                     >
                       Active
                     </button>
